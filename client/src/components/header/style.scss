@@ -1,0 +1,101 @@
+#header {
+    .site-nav {
+        position: fixed;
+        top: 0;
+        height: 50px;
+        width: 100%;
+        z-index: 3;
+        background: rgba(255,255,255,.1);
+        transition: all .6s;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background: rgba(255,255,255,.8)!important;
+            -webkit-box-shadow: 0 0 2px 2px rgba(172,172,172,.4)!important;
+            box-shadow: 0 0 2px 2px rgba(172,172,172,.4)!important;
+            color: #000;
+        }
+        .menu {
+            .menu-item {
+                border: 0;
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                position: relative;
+                text-align: left;
+                margin: 0 20px 0 0;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+    .header-warp {
+        width: 100%;
+        height: 550px;
+        padding: 0;
+        -webkit-box-shadow: initial;
+        box-shadow: initial;
+        border-radius: initial;
+        position: relative;
+        animation: fade-in-bottom 1s .3s backwards;
+    }
+    .header-background {
+        background-image: url("../../assets/image/siteBack.jpg");
+        // background-image: url("https://s1.ax1x.com/2020/05/05/YFL6Bt.jpg");
+        height: 550px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+        &:after {
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(180deg,rgba(0,0,0,.38) 0,rgba(0,0,0,.38) 3.5%,rgba(0,0,0,.379) 7%,rgba(0,0,0,.377) 10.35%,rgba(0,0,0,.375) 13.85%,rgba(0,0,0,.372) 17.35%,rgba(0,0,0,.369) 20.85%,rgba(0,0,0,.366) 24.35%,rgba(0,0,0,.364) 27.85%,rgba(0,0,0,.361) 31.35%,rgba(0,0,0,.358) 34.85%,rgba(0,0,0,.355) 38.35%,rgba(0,0,0,.353) 41.85%,rgba(0,0,0,.351) 45.35%,rgba(0,0,0,.35) 48.85%,rgba(0,0,0,.353) 52.35%,rgba(0,0,0,.36) 55.85%,rgba(0,0,0,.371) 59.35%,rgba(0,0,0,.385) 62.85%,rgba(0,0,0,.402) 66.35%,rgba(0,0,0,.42) 69.85%,rgba(0,0,0,.44) 73.35%,rgba(0,0,0,.46) 76.85%,rgba(0,0,0,.48) 80.35%,rgba(0,0,0,.498) 83.85%,rgba(0,0,0,.515) 87.35%,rgba(0,0,0,.529) 90.85%,rgba(0,0,0,.54) 94.35%,rgba(0,0,0,.547) 97.85%,rgba(0,0,0,.55));
+        }
+    }
+    .site-meta {
+        width: 100%;
+        height: 550px;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .site-title {
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Telefon Black',Sans-Serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 2;
+        }
+        .site-description {
+            font-size: 34px;
+            font-weight: 400;
+            color: #fff;
+            line-height: 2;
+        }
+    }
+
+
+}
+
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
