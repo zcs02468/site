@@ -2,7 +2,6 @@ import React from "react";
 import { ClockCircleOutlined, EyeOutlined, CommentOutlined } from "@ant-design/icons";
 import Prism from "prismjs";
 import moment from 'moment';
-// import 'moment/locale/en-ca';
 import { getBlogContent } from "../../axios/index";
 import "./style.scss";
 
