@@ -10,3 +10,5 @@ import { get, post } from "./tools";
 export const getQuote = async () => await get({ url: "/api/user/getQuote" });
 
 export const getBlogList = async (page: number, pageSize: number) => await get({ url: "/api/blog/getBlogList", params: { page: page, pageSize: pageSize } });
+
+export const getBlogContent = async (id: string) => await get({url:'/api/blog/getPointBlog',params: {id: id }})

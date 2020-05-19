@@ -14,7 +14,7 @@ function AppRouter() {
                 <Header />
                 <div className="pageContent">
                     <Route path="/" exact component={HomePage} />
-                    <Route path="/detail" component={DetailPage} />
+                    <Route path="/detail/:id" component={DetailPage} />
                 </div>
                 <Footer />
                 <Effect />
