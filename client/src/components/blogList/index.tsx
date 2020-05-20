@@ -1,5 +1,6 @@
 import React from "react"
 import PostMeta from "../postMeta/index"
+import { Button } from 'antd';
 import "./style.scss"
 
 
@@ -29,7 +30,8 @@ function BlogList() {
             前言由于国内的 app store有很多应用是没有的，所以现在大家一般都有一个美服的 apple id，具体的注册方法大家可以自行搜索，不是特别困难。不过有些软件是收费的，比如 shadowro...
             </div>
             <div className="item-button">
-                <button>-&nbsp;阅读全文&nbsp;-</button>
+                {/* <a>-&nbsp;阅读全文&nbsp;-</a> */}
+                <Button href="http://baidu.com">阅读全文</Button>
             </div>
         </div>
     )

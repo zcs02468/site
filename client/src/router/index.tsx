@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Effect from "../components/effect/index"
 import Header from "../components/header/index"
 import Footer from "../components/footer/index"
-import DetailPage from "../page/detail/index"
 import HomePage from "../page/index"
+import DetailPage from "../page/detail/index"
+import EmailPage from "../page/email/index"
 
 
 function AppRouter() {
@@ -15,6 +16,7 @@ function AppRouter() {
                 <div className="pageContent">
                     <Route path="/" exact component={HomePage} />
                     <Route path="/detail/:id" component={DetailPage} />
+                    <Route path="/email" component={EmailPage} />
                 </div>
                 <Footer />
                 <Effect />

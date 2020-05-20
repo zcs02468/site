@@ -79,10 +79,13 @@ let emailSchema = new Schema({
     }
 })
 
+
 let blogSchema = new Schema({
-    title: String,
-    rawContent: String,
-    htmlContent: String,
+    title: String,          //标题
+    rawContent: String,     //详情页数据
+    htmlContent: String,    //详情页内容
+    views: Number,          //浏览量
+    comments: Object,
     createTime:{
         type: String,
         default: Date.now
