@@ -1,17 +1,15 @@
 import React, { Component } from "react";
-import { Card, List, Pagination } from "antd";
 import { getBlogList } from "../axios/index";
 import "./style.scss";
-import { Link } from "react-router-dom";
 
 import BlogList from "../components/blogList/index"
 
-interface BlogBase {
-    _id: string;
-    title: string;
-    time: string;
-    traffic: number;
-}
+// interface BlogBase {
+//     _id: string;
+//     title: string;
+//     time: string;
+//     traffic: number;
+// }
 
 class BlogPage extends Component {
     state = {
