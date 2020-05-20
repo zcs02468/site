@@ -6,8 +6,8 @@ import { get, post } from "./tools";
 //         return null
 //     }
 //     return res
-// }
-export const getQuote = async () => await get({ url: "/api/user/getQuote" });
+// }q
+export const getQuote = async () => await get({ url: "/api/quote/getQuote" });
 
 
 export const getBlogList = async (page: number, pageSize: number) => await get({ url: "/api/blog/getBlogList", params: { page: page, pageSize: pageSize } });

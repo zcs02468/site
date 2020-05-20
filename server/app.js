@@ -22,7 +22,7 @@ const app = new Koa()
 const TimeTask = require('./timedTask/index')
 
 // 定时任务
-// TimeTask()
+TimeTask()
 
 
 onerror(app)

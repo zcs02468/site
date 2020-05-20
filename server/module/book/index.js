@@ -2,9 +2,9 @@ const cheerio = require("cheerio");
 const fetch = require('../../utils/fetch')
 const {removeAllSpaces} = require('../../utils/untils')
 const biquge = require('./biquge/index')
-const b5200 = require('./b5200/index')
-const request = require("request");
-const superagent = require('./superagent')
+// const b5200 = require('./b5200/index')
+// const request = require("request");
+// const superagent = require('./superagent')
 
 const urlList = {
     biquge: {
