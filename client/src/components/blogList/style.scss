@@ -1,0 +1,33 @@
+.index-list {
+    padding: 40px;
+    background: #fff;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    position: relative;
+    .item-header {
+        margin-bottom: 30px;
+        text-align: center;
+        .item-title {
+            a {
+                font-size: 25px;
+                font-weight: 700;
+                display: inline-block;
+                position: relative;
+                color: #555;
+                border-bottom: none;
+                line-height: 1.2;
+            }
+        }
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        padding: 5px;
+        margin: 0 auto;
+    }
+    .item-button {
+        
+    }
+}
