@@ -1,9 +1,7 @@
 import React from "react";
-import { ClockCircleOutlined, EyeOutlined, CommentOutlined } from "@ant-design/icons";
 import Prism from "prismjs";
-import moment from 'moment';
-// import 'moment/locale/en-ca';
 import { getBlogContent } from "../../axios/index";
+import PostMeta from "../../components/postMeta/index"
 import "./style.scss";
 
 interface Props {
@@ -28,7 +26,7 @@ class DetailPage extends React.PureComponent<Props, {}> {
         this.setState({
             outputContent: res.data.htmlContent,
             title: res.data.title,
-            createTime: moment(Number(res.data.createTime)).format(`YYYY-MM-DD`)
+            createTime: res.data.createTime
         });
         Prism.hooks.add('before-highlight', function(env: any) {
             env.element.innerHTML = env.element.innerHTML.replace(/<br\s*\/?>/g,'\n');
@@ -38,12 +36,13 @@ class DetailPage extends React.PureComponent<Props, {}> {
 
     render() {
         return (
-            <div className="detail-page">
+            <div className="detail-page animated fadeInUp" >
                 <div className="content-wrap">
                     <div className="post">
                         <header className="post-header">
                             <h1>{ this.state.title }</h1>
-                            <div className="post-meta">
+                            <PostMeta createTime={this.state.createTime}/>
+                            {/* <div className="post-meta">
                                 <span className="time">
                                     <ClockCircleOutlined /> 发表于 <time>{this.state.createTime}</time>
                                 </span>
@@ -55,7 +54,7 @@ class DetailPage extends React.PureComponent<Props, {}> {
                                         <CommentOutlined /> 没有评论
                                     </a>
                                 </span>
-                            </div>
+                            </div> */}
                         </header>
                         <div className="post-content">
                             <div className="before-highlight" dangerouslySetInnerHTML={{ __html: this.state.outputContent }}></div>

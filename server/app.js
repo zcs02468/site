@@ -21,7 +21,7 @@ const app = new Koa()
 
 const TimeTask = require('./timedTask/index')
 
-//定时任务
+// 定时任务
 // TimeTask()
 
 
@@ -45,12 +45,9 @@ app.use(bodyparser({
 }))
 // app.use(check_token)
 app.use(json())
-app.use(logger())
+app.use(logger()) 
 
-//5d7b3d20895f6021df4205eed2561b55568afd59
 // routes
-console.log( '1111111',new Date().getTime() );
-
 app.use(index.routes(), index.allowedMethods())
 
 module.exports = app
