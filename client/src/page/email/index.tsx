@@ -3,9 +3,15 @@ import { HeartOutlined, HeartFilled, HighlightOutlined } from "@ant-design/icons
 import Letter from "../../components/letter/index"
 import "./style.scss";
 
-class DetailPage extends Component {
+interface DetailPageState {
+    isLike: boolean;
+    visible: boolean
+}
+
+class DetailPage extends React.Component<{},DetailPageState> {
     state = {
         isLike: false,
+        visible: false
     };
     clickLike = () => {
         this.setState({
@@ -14,7 +20,9 @@ class DetailPage extends Component {
     };
 
     openLetter = () => {
-        
+        this.setState({
+            visible: true
+        })
     }
 
     render() {
@@ -24,7 +32,7 @@ class DetailPage extends Component {
         } else {
             like = <HeartOutlined className="no-like zoomIn" onClick={this.clickLike} />;
         }
-
+        const { visible } = this.state;
         return (
             <div className="email-page">
                 <div className="email-warp">
@@ -40,7 +48,9 @@ class DetailPage extends Component {
                         <HighlightOutlined />
                         我也要撰写
                     </div>
-                    <Letter />
+                    <Letter 
+                        visible={visible}  
+                    />
                 </div>
             </div>
         );

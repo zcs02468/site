@@ -19,14 +19,30 @@ const { confirm } = Modal;
 
 //当组件从页面中删除的时候执行    componentWillUnmount
 
+interface LetterProps {
+    visible: boolean
+}
 
-class Letter extends Component {
+interface LetterState {
+    editorState: any;
+    visible: boolean
+}
 
-    
+
+
+
+class Letter extends React.Component<LetterProps, LetterState> {
+
     state = {
         // 创建一个空的editorState作为初始值
         editorState: BraftEditor.createEditorState(null),
+        visible: false
     }
+    
+    componentWillReceiveProps(props:LetterProps) {
+    this.setState({ visible: props.visible })
+    }
+    
 
     componentWillMount() {
         document.getElementsByTagName("body")[0].style.cssText = 'position: relative; overflow: hidden';
@@ -35,6 +51,7 @@ class Letter extends Component {
         document.getElementsByTagName("body")[0].style.cssText = '';
     }
     async componentDidMount () {
+        this.setState({ visible: this.props.visible })
         let rawContent: string = '';
         const storageRawContent = localStorage.getItem('letterState')
         if( storageRawContent ) {
@@ -47,6 +64,9 @@ class Letter extends Component {
 
     abortLetter = ()=> {
         this.saveLetterState()
+        this.setState({
+            visible: false
+        })
     }
 
     saveLetterState() {
@@ -59,8 +79,9 @@ class Letter extends Component {
         this.saveLetterState()
     }
     render() {
-        const { editorState } = this.state
+        const { editorState, visible } = this.state
         return(
+            visible &&
             <div className={Style.box}>
                 <div className={Style.warp}>
                     <div className={Style.body}>
