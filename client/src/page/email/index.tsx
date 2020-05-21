@@ -5,7 +5,11 @@ class DetailPage extends Component {
 
     render() {
         return (
-          <div>邮箱页面</div>
+          <div className="email-page">
+            <div className="email-warp">
+              <div>公开信箱</div>
+            </div>
+          </div>
         );
     }
 }

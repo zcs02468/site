@@ -4,6 +4,7 @@ import Effect from "../components/effect/index"
 import Header from "../components/header/index"
 import Footer from "../components/footer/index"
 import HomePage from "../page/index"
+import BlogPage from "../page/blog/index"
 import DetailPage from "../page/detail/index"
 import EmailPage from "../page/email/index"
 
@@ -15,6 +16,7 @@ function AppRouter() {
                 <Header />
                 <div className="pageContent">
                     <Route path="/" exact component={HomePage} />
+                    <Route path="/blog" component={BlogPage} />
                     <Route path="/detail/:id" component={DetailPage} />
                     <Route path="/email" component={EmailPage} />
                 </div>
