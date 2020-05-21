@@ -2,6 +2,7 @@ import React from "react";
 import Prism from "prismjs";
 import { getBlogContent } from "../../axios/index";
 import PostMeta from "../../components/postMeta/index"
+import PageBack from "../../components/pageBack";
 import "./style.scss";
 
 interface Props {
@@ -37,6 +38,7 @@ class DetailPage extends React.PureComponent<Props, {}> {
     render() {
         return (
             <div className="detail-page animated fadeInUp" >
+                <PageBack />
                 <div className="content-wrap">
                     <div className="post">
                         <header className="post-header">

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { getBlogList } from "../../axios/index";
+import PageBack from "../../components/pageBack";
 import "./style.scss";
 
-import BlogList from "../../components/blogList/index"
+import BlogList from "../../components/blogList/index";
 
 // interface BlogBase {
 //     _id: string;
@@ -19,8 +20,8 @@ class BlogPage extends Component {
     componentWillMount() {
         this.getPointBlogList(1, 10);
     }
-    getPointBlogList = async(page: number, pageSize: number) => {
-        const [res] = await getBlogList(page, pageSize )
+    getPointBlogList = async (page: number, pageSize: number) => {
+        const [res] = await getBlogList(page, pageSize);
         this.setState({
             list: res.data.list,
             total: res.data.count,
@@ -30,17 +31,15 @@ class BlogPage extends Component {
     render() {
         return (
             <div className="blog-page">
+                <PageBack />
                 <div className="blog-warp">
                     <div className="blog-content">
                         <BlogList />
                     </div>
                 </div>
             </div>
-        )
+        );
     }
-
-
-
 
     // render() {
     //     return (

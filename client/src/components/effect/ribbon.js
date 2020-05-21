@@ -29,7 +29,8 @@ function ribbon(props) {
 
     var canvas = document.createElement("canvas");
     canvas.style.cssText = "position:fixed;top:0;left:0;z-index:"+config.zIndex;
-    document.getElementsByTagName("body")[0].appendChild(canvas);
+    // document.getElementsByTagName("body")[0].appendChild(canvas);
+    document.getElementsByClassName("effect-box")[0].appendChild(canvas);
 
     var canvasRibbon = canvas,
         ctx = canvasRibbon.getContext('2d'),    // 获取canvas 2d上下文
@@ -82,6 +83,7 @@ function ribbon(props) {
 
     document.onclick = init;
     document.ontouchstart = init;
+    init();
 }
 
 export default ribbon;
