@@ -1,48 +1,53 @@
 import React, { Component } from "react";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled, HighlightOutlined } from "@ant-design/icons";
+import Letter from "../../components/letter/index"
 import "./style.scss";
 
-
 class DetailPage extends Component {
-  state = {
-    isLike: false
-  }
-  clickLike = () => {
-    this.setState({
-      isLike: !this.state.isLike
-    })
-  };
-  
-  
+    state = {
+        isLike: false,
+    };
+    clickLike = () => {
+        this.setState({
+            isLike: !this.state.isLike,
+        });
+    };
 
-  render() {
-    let like;
-    if( this.state.isLike ) {
-      like = <HeartFilled style={{ color: 'red' }} className="no-like zoomIn" onClick={this.clickLike}/>
-    }else {
-      like = <HeartOutlined className="no-like zoomIn" onClick={this.clickLike}/>
+    openLetter = () => {
+        
     }
 
-      return (
-        <div className="email-page">
-          <div className="email-warp">
-            <div className="email-title">公开信箱</div>
-            <div className="letter-box">
-              <div className="letter-item">
-                <div className="letter-item-content">{content}</div>
-                <div className="letter-item-footer">
-                  {like}
+    render() {
+        let like;
+        if (this.state.isLike) {
+            like = <HeartFilled style={{ color: "red" }} className="no-like zoomIn" onClick={this.clickLike} />;
+        } else {
+            like = <HeartOutlined className="no-like zoomIn" onClick={this.clickLike} />;
+        }
+
+        return (
+            <div className="email-page">
+                <div className="email-warp">
+                    <div className="email-title">公开信箱</div>
+                    <div className="letter-box">
+                        <div className="letter-item">
+                            <div className="letter-item-header">寄往2020</div>
+                            <div className="letter-item-content">{content}</div>
+                            <div className="letter-item-footer">{like}</div>
+                        </div>
+                    </div>
+                    <div className="write-letter" onClick={this.openLetter}>
+                        <HighlightOutlined />
+                        我也要撰写
+                    </div>
+                    <Letter />
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      );
-  }
+        );
+    }
 }
 
-
-var content:string = `
+var content: string = `
 面朝大海，春暖花开全文
 
         海子
@@ -60,6 +65,5 @@ var content:string = `
 愿你有一个灿烂的前程
 愿你有情人终成眷属
 愿你在尘世获得幸福`;
-
 
 export default DetailPage;

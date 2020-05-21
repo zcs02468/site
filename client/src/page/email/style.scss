@@ -5,6 +5,7 @@
 .email-warp {
     width: 600px;
     min-height: 895px;
+    position: relative;
 }
 
 .email-title {
@@ -28,6 +29,10 @@
         font-size: 17px;
     }
 }
+.letter-item-header {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
 .letter-item-footer {
     text-align: right;
     span {
@@ -39,6 +44,14 @@
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
     }
+}
+.write-letter {
+    width: 140px;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 620px;
+    top: 100px;
 }
 .grid {
     width: 400px;

@@ -1,0 +1,77 @@
+.box {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+.warp {
+    width: 900px;
+    height: 100%;
+    background: #fff;
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    .title {
+        flex: 0 1;
+        color: #767171 !important;
+        font-family: '微软雅黑', '黑体', '宋体';
+        font-size: 28px;
+        font-weight: bold;
+        font-style: '微软雅黑', '黑体', '宋体';
+        text-shadow: 0px -1px 2px #c1c2c3;
+        text-align: center;
+        margin: 20px;
+    }
+    .content {
+        flex: 1;
+        width: 600px;
+        padding: 25px;
+        background: #fafafa;
+        height: 80vh;
+        border-radius: 5px;    
+        font-size: 17px;
+        color: #333;
+        border: none;
+        outline: none;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        box-shadow: 0 0 2px rgba(0,0,0,0.3);
+        span[data-text="true"] {
+            // font-size: 17px;
+            // line-height: 1.75;
+        }
+    }
+    .grid {
+        width: 400px;
+        height: 280px;
+        margin: 40px;
+        border: 1px solid;
+        background: -webkit-linear-gradient(top, transparent 39px, #000 39px);
+        // background: -webkit-linear-gradient(top, transparent 39px, blue 39px, blue 41px,transparent 41px, transparent 79px, red 80px), -webkit-linear-gradient(left, transparent 39px, orange 39px, orange 41px,transparent 41px, transparent 79px, green 80px);
+        background-size: 40px 40px;
+    }
+}
+.btn {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    button {
+        margin-top: 20px;
+    }
+    .send {
+        position: absolute;
+        right: 50px;
+    }
+    .delete {
+        position: absolute;
+        left: 50px;
+    }
+}

@@ -17,3 +17,7 @@ table { border-collapse:collapse; border-spacing:0; }
 /* body {
     background: #f5f7f9 !important;
 } */
+
+.bf-content  {
+    height: 100% !important;
+}
