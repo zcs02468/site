@@ -19,7 +19,8 @@ class DetailPage extends React.Component<{},DetailPageState> {
         });
     };
 
-    openLetter = () => {
+    openLetter = (e:any) => {
+        
         this.setState({
             visible: true
         })
@@ -49,7 +50,12 @@ class DetailPage extends React.Component<{},DetailPageState> {
                         我也要撰写
                     </div>
                     <Letter 
-                        visible={visible}  
+                        visible={visible}
+                        cancel={() => {
+                            this.setState({
+                                visible: false,
+                            });
+                        }}
                     />
                 </div>
             </div>

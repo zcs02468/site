@@ -54,11 +54,14 @@ const SendDialog: React.FC<SendDialogProps> = ({
     return (
         <Modal
             visible={visible}
-            title="取消"
+            title="发送邮件"
             okText="发送"
-            cancelText="Cancel"
+            cancelText="取消"
+            centered
             onCancel={onCancel}
             confirmLoading={confirmLoading}
+            maskClosable={false}
+            keyboard={false}
             onOk={() => {
                 form.validateFields()
                     .then((values) => {
