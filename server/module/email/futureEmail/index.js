@@ -5,6 +5,8 @@ const getHtmlData = require("./getHtml");
 const {formatTime} = require("../../../utils/formatDate");
 const {EmailAuth, EmailService, EmailFrom} = require('../../../config')
 
+const temlFn = require("./template")
+
 let transporter = nodemailer.createTransport({
     service: EmailService, // 发送者的邮箱厂商，支持列表：https://nodemailer.com/smtp/well-known/
     port: 465, // SMTP 端口
@@ -27,10 +29,11 @@ const send = async(item) => {
             date: `${targetDate.Y}-${targetDate.M}-${targetDate.D}`,
             time: `${targetDate.h}-${targetDate.m}-${targetDate.s}`
         },
-        content: JSON.parse(item.rawContent).blocks
+        // content: JSON.parse(item.rawContent).blocks
+        content: item.htmlContent
     }
-
-    let htmlData = await getHtmlData(allData);
+    let htmlData = temlFn(allData)
+    // let htmlData = await getHtmlData(allData);
     let mailOptions = {
         from: EmailFrom, // 发送者昵称和地址
         to: item.toEmail, // 接收者的邮箱地址
@@ -42,6 +45,7 @@ const send = async(item) => {
         if (error) {
             return console.log(error);
         }
+        htmlData = ''
         console.log("邮件发送成功 ID：", info.messageId);
     });
 }

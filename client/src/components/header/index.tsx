@@ -9,7 +9,7 @@ class Header extends Component {
     async componentWillMount() {
         const [res] = await getQuote();
         this.setState({
-            sentence: res.data
+            sentence: res? res.data : ''
         })
     }
     render() {

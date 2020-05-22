@@ -41,6 +41,9 @@ const SendDialog: React.FC<SendDialogProps> = ({
                 setConfirmLoading(false);
                 onCancel();
                 message.success('创建完成');
+                //发送完成清空所有缓存数据
+                localStorage.removeItem('letterRawState');
+                localStorage.removeItem('letterHtmlState');
                 cancelAll();
             },2000)
         }

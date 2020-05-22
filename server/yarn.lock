@@ -2033,6 +2033,11 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   resolved "https://registry.npm.taobao.org/normalize-path/download/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha1-Dc1p/yOhybEf0JeDFmRKA4ghamU=
 
+nornj@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.npm.taobao.org/nornj/download/nornj-5.1.1.tgz#b06db3fe984dfa8e3616dbd98adc3dbbcdd5a44a"
+  integrity sha1-sG2z/phN+o42FtvZitw9u83VpEo=
+
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/npm-run-path/download/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"

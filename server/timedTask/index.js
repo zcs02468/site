@@ -17,6 +17,7 @@ const timeTask = async function () {
     // schedule.scheduleJob('0 30 9 * * *', ()=> {
     //     sendOneEmail()
     // })
+    sendEmail()
     schedule.scheduleJob('0 20 5 * * *', ()=> {
         sendEmail()
     })

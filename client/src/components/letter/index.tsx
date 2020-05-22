@@ -112,6 +112,7 @@ class Letter extends React.Component<LetterProps, LetterState> {
                         cancelAll={() => {
                             this.setState({
                                 visible: false,
+                                editorState: BraftEditor.createEditorState(null)
                             });
                         }}
                     />
