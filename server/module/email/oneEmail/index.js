@@ -1,10 +1,10 @@
 //vrckkvikbnxwbicc
 const nodemailer = require("nodemailer"); //发送邮件的node插件
-const Quote = require('../../db').Quote
+const Quote = require('../../../db').Quote
 const getWeatherData = require('./getWeatherData');
-const getHtmlData = require("../email/getHtmlData");
-const formatDate = require("../../utils/formatDate");
-const {EmailAuth, EmailService, EmailFrom, EmailToArr, EmailSubject} = require('../../config')
+const getHtmlData = require("./getHtmlData");
+const {formatDate} = require("../../../utils/formatDate");
+const {EmailAuth, EmailService, EmailFrom, EmailToArr, EmailSubject} = require('../../../config')
 // const aa = require('../../config/index')
 
 let transporter = nodemailer.createTransport({

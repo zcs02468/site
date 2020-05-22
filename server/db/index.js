@@ -79,6 +79,17 @@ let emailSchema = new Schema({
     }
 })
 
+let futureEmailSchema = new Schema({
+    toEmail: String,
+    fromTime: String,
+    open: Boolean,
+    rawContent: String,
+    htmlContent: String,
+    createTime:{
+        type: String,
+        default: Date.now
+    }
+})
 
 let blogSchema = new Schema({
     title: String,          //标题
@@ -98,3 +109,5 @@ exports.Record = mongoose.model("Record", recordSchema);
 exports.Quote = mongoose.model("Quote", quoteSchema);
 exports.Email = mongoose.model("Email", emailSchema);
 exports.Blog = mongoose.model("Blog", blogSchema);
+exports.FutureEmail = mongoose.model("FutureEmail", futureEmailSchema);
+

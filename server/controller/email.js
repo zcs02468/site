@@ -1,4 +1,5 @@
 const Email = require('../db').Email
+const FutureEmail = require('../db').FutureEmail
 const xss = require('xss')
 
 
@@ -43,6 +44,26 @@ module.exports = {
             ctx.body = {
                 code: 500,
                 msg: '保存失败！'
+            }
+        }
+    },
+
+    async createFutureEmail(ctx, next) {
+        let { toEmail= '', fromTime= '', open = false,  rawContent= '', htmlContent = '' } = ctx.request.body
+        try {
+            //存储邮件信息
+            let futureEmail = new FutureEmail({ toEmail, fromTime, open, rawContent, htmlContent })
+            res = await futureEmail.save()
+            ctx.body = {
+                code: 200,
+                msg: '创建完成',
+                data: ''
+            }
+        } catch (error) {
+            console.error( 'error', error );
+            ctx.body = {
+                code: 500,
+                msg: '创建失败！'
             }
         }
     }

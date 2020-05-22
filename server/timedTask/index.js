@@ -1,18 +1,32 @@
 const getOneData = require('../module/getOneData/index')
-const sendMail = require('../module/email/index')
+const sendOneEmail = require('../module/email/oneEmail/index')
+const sendEmail = require('../module/email/futureEmail/index')
 const schedule = require('node-schedule');
 
 
 
+
+//定时任务
 const timeTask = async function () {
+    // 定时爬取网站数据
     schedule.scheduleJob('01 0 0 * * *', ()=> {
         getOneData()
     })
-    schedule.scheduleJob('0 30 9 * * *', ()=> {
-        sendMail()
+    //定时发送邮件  
+    // //单一发送指定邮箱
+    // schedule.scheduleJob('0 30 9 * * *', ()=> {
+    //     sendOneEmail()
+    // })
+    schedule.scheduleJob('0 20 5 * * *', ()=> {
+        sendEmail()
     })
+
 }
 module.exports = timeTask;
+
+
+
+
 
 
 

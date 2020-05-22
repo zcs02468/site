@@ -19,6 +19,7 @@ router.get('/api/quote/getQuote', controller.quote.getQuote)// 获取每日一�
 //邮件管理
 router.post('/api/email/createTimingEmail', controller.email.createTimingEmail)
 router.get('/api/email/getEmailList', controller.email.getEmailList)
+router.post('/api/email/createFutureEmail', controller.email.createFutureEmail)
 
 //书
 router.get('/api/book/search', controller.book.search)// 登陆
