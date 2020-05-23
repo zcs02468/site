@@ -8,6 +8,7 @@ import SendDialog from "./sendDialog/index";
 
 import "braft-editor/dist/index.css";
 import Style from "./style.module.scss";
+import { type } from "os";
 
 // componentWillMount----组件将要挂载到页面的时刻执行
 // render----开始挂载渲染
@@ -88,7 +89,7 @@ class Letter extends React.Component<LetterProps, LetterState> {
     const { editorState, visible, isShowDialog } = this.state;
     return (
       visible && (
-          <div className={Style.box}>
+          <div className={`${Style.box} animated ${ visible ? "zoomIn":"zoomOut" }`}>
             <div className={Style.warp}>
               <div className={Style.body}>
                 <div className={Style.title}>寄给未来的信</div>
