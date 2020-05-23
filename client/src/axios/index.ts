@@ -25,4 +25,4 @@ interface createEmail {
     htmlContent: any;
 }
 
-export const createFutureEmail = async (obj:createEmail)=> await post({url:'/api/email/createFutureEmail',params: { ...obj }})
+export const createTimingEmail = async (obj:createEmail)=> await post({url:'/api/email/createTimingEmail',params: { ...obj }})

@@ -67,24 +67,32 @@ let quoteSchema = new Schema({
     },
 })
 
-let emailSchema = new Schema({
-    fromName:String, //发送者名称
-    toEmail: String, //接收者邮箱地址
-    subject: String, //邮件主题
-    fromTime: String, //邮件发送时间
-    fromFrequency: String,
-    createTime:{
-        type: String,
-        default: Date.now
-    }
-})
+// let emailSchema = new Schema({
+//     fromName:String, //发送者名称
+//     toEmail: String, //接收者邮箱地址
+//     subject: String, //邮件主题
+//     fromTime: String, //邮件发送时间
+//     fromFrequency: String,
+//     createTime:{
+//         type: String,
+//         default: Date.now
+//     }
+// })
 
-let futureEmailSchema = new Schema({
-    toEmail: String,
-    fromTime: String,
-    open: Boolean,
-    rawContent: String,
-    htmlContent: String,
+let emailSchema = new Schema({
+    toEmail: String,        //收信 email 地址
+    fromTime: String,       //发送时间
+    open: Boolean,          //是否放入公开信箱
+    rawContent: String,     //数据内容
+    htmlContent: String,    //html内容
+    status: {
+        type:Number,
+        default: 0
+    },         //邮件状态  0 未发送  1 发送成功 2发送失败
+    like: {
+        type: Number,
+        default: 0
+    },           //点赞数量
     createTime:{
         type: String,
         default: Date.now
@@ -96,7 +104,7 @@ let blogSchema = new Schema({
     rawContent: String,     //详情页数据
     htmlContent: String,    //详情页内容
     views: Number,          //浏览量
-    comments: Object,
+    comments: Object,       //
     createTime:{
         type: String,
         default: Date.now
@@ -109,5 +117,5 @@ exports.Record = mongoose.model("Record", recordSchema);
 exports.Quote = mongoose.model("Quote", quoteSchema);
 exports.Email = mongoose.model("Email", emailSchema);
 exports.Blog = mongoose.model("Blog", blogSchema);
-exports.FutureEmail = mongoose.model("FutureEmail", futureEmailSchema);
+// exports.FutureEmail = mongoose.model("FutureEmail", futureEmailSchema);
 

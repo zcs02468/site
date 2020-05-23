@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Form, Input, DatePicker, Checkbox, message } from "antd";
-import { createFutureEmail } from "../../../axios/index"
+import { createTimingEmail } from "../../../axios/index"
 
 import Style from "./style.module.scss";
 
@@ -35,7 +35,7 @@ const SendDialog: React.FC<SendDialogProps> = ({
             rawContent: rawContent,
             htmlContent: htmlContent,
         }
-        const [res] = await createFutureEmail(obj)
+        const [res] = await createTimingEmail(obj)
         if( res ) {
             setTimeout(()=> {
                 setConfirmLoading(false);

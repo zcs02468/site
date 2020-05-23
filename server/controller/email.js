@@ -1,28 +1,9 @@
 const Email = require('../db').Email
-const FutureEmail = require('../db').FutureEmail
-const xss = require('xss')
+// const FutureEmail = require('../db').FutureEmail
+// const xss = require('xss')
 
 
 module.exports = {
-    async createTimingEmail(ctx, next) {
-        let { fromName= '', subject = '', toEmail= '', fromTime= '', fromFrequency= ''} = ctx.request.body
-        try {
-            //存储用户信息
-            let email = new Email({ fromName, subject, toEmail, fromTime, fromFrequency  })
-            res = await email.save()
-            ctx.body = {
-                code: 200,
-                msg: '保存成功',
-                data: ''
-            }
-        } catch (error) {
-            console.error( 'error', error );
-            ctx.body = {
-                code: 500,
-                msg: '保存失败！'
-            }
-        }
-    },
 
     async getEmailList(ctx, next) {
         let { page= 1, pageSize= 10 } = ctx.request.query
@@ -48,11 +29,11 @@ module.exports = {
         }
     },
 
-    async createFutureEmail(ctx, next) {
+    async createTimingEmail(ctx, next) {
         let { toEmail= '', fromTime= '', open = false,  rawContent= '', htmlContent = '' } = ctx.request.body
         try {
             //存储邮件信息
-            let futureEmail = new FutureEmail({ toEmail, fromTime, open, rawContent, htmlContent })
+            let futureEmail = new Email({ toEmail, fromTime, open, rawContent, htmlContent })
             res = await futureEmail.save()
             ctx.body = {
                 code: 200,
@@ -66,5 +47,22 @@ module.exports = {
                 msg: '创建失败！'
             }
         }
-    }
+    },
+
+
+    //内部调用
+    async getTargetDateEmail(targetTime) {
+        try {
+            let data = await FutureEmail.find({ fromTime: targetTime });
+            return data
+        } catch (error) {
+            console.error("查询失败", error)  
+            return []          
+        }
+    },
+
+    async editorTimingEmailStatus(status) {
+        let futureEmail = new Email({ status: status })
+        await futureEmail.save()
+    },
 };
