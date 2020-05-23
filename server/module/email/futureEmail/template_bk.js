@@ -104,8 +104,6 @@ const tmpl = `
     </div>   
   </body>
 </html>
-
-
 `
 nj.textMode = true
 
