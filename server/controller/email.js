@@ -33,8 +33,8 @@ module.exports = {
         let { toEmail= '', fromTime= '', open = false,  rawContent= '', htmlContent = '' } = ctx.request.body
         try {
             //存储邮件信息
-            let futureEmail = new Email({ toEmail, fromTime, open, rawContent, htmlContent })
-            res = await futureEmail.save()
+            let Email = new Email({ toEmail, fromTime, open, rawContent, htmlContent })
+            res = await Email.save()
             ctx.body = {
                 code: 200,
                 msg: '创建完成',
@@ -53,7 +53,7 @@ module.exports = {
     //内部调用
     async getTargetDateEmail(targetTime) {
         try {
-            let data = await FutureEmail.find({ fromTime: targetTime });
+            let data = await Email.find({ fromTime: targetTime });
             return data
         } catch (error) {
             console.error("查询失败", error)  

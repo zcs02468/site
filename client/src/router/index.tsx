@@ -1,17 +1,27 @@
 import * as React from 'react'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom'
 import Effect from "../components/effect/index"
 import Header from "../components/header/index"
 import Footer from "../components/footer/index"
-import HomePage from "../page/index"
-import BlogPage from "../page/blog/index"
-import DetailPage from "../page/detail/index"
-import EmailPage from "../page/email/index"
+// import HomePage from "../page/index"
+// import BlogPage from "../page/blog/index"
+// import DetailPage from "../page/detail/index"
+// import EmailPage from "../page/email/index"
+
+// import HomePage from "../page/index"
+// import BlogPage from "../page/blog/index"
+// import DetailPage from "../page/detail/index"
+// import EmailPage from "../page/email/index"
+
+const HomePage = React.lazy(() => import('../page/index'))
+const BlogPage = React.lazy(() => import('../page/blog/index'))
+const DetailPage = React.lazy(() => import('../page/detail/index'))
+const EmailPage = React.lazy(() => import('../page/email/index'))
 
 
 function AppRouter() {
     return (
-        <Router>
+        <BrowserRouter>
             <div className="page-right">
                 <Header />
                 <div className="pageContent">
@@ -23,7 +33,7 @@ function AppRouter() {
                 <Footer />
                 <Effect />
             </div>
-        </Router>
+        </BrowserRouter>
     );
 }
 export default AppRouter;
