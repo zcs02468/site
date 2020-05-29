@@ -17,6 +17,7 @@ const HomePage = React.lazy(() => import('../page/index'))
 const BlogPage = React.lazy(() => import('../page/blog/index'))
 const DetailPage = React.lazy(() => import('../page/detail/index'))
 const EmailPage = React.lazy(() => import('../page/email/index'))
+const ChartPage = React.lazy(() => import('../page/chart/index'))
 
 
 function AppRouter() {
@@ -29,6 +30,7 @@ function AppRouter() {
                     <Route path="/blog" component={BlogPage} />
                     <Route path="/detail/:id" component={DetailPage} />
                     <Route path="/email" component={EmailPage} />
+                    <Route path="/chart" component={ChartPage} />
                 </div>
                 <Footer />
                 <Effect />

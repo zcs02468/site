@@ -33,8 +33,8 @@ module.exports = {
         let { toEmail= '', fromTime= '', open = false,  rawContent= '', htmlContent = '' } = ctx.request.body
         try {
             //存储邮件信息
-            let Email = new Email({ toEmail, fromTime, open, rawContent, htmlContent })
-            res = await Email.save()
+            let res = new Email({ toEmail, fromTime, open, rawContent, htmlContent })
+            res = await res.save()
             ctx.body = {
                 code: 200,
                 msg: '创建完成',
