@@ -67,18 +67,6 @@ let quoteSchema = new Schema({
     },
 })
 
-// let emailSchema = new Schema({
-//     fromName:String, //发送者名称
-//     toEmail: String, //接收者邮箱地址
-//     subject: String, //邮件主题
-//     fromTime: String, //邮件发送时间
-//     fromFrequency: String,
-//     createTime:{
-//         type: String,
-//         default: Date.now
-//     }
-// })
-
 let emailSchema = new Schema({
     toEmail: String,        //收信 email 地址
     fromTime: String,       //发送时间
@@ -103,8 +91,18 @@ let blogSchema = new Schema({
     title: String,          //标题
     rawContent: String,     //详情页数据
     htmlContent: String,    //详情页内容
-    views: Number,          //浏览量
-    comments: Object,       //
+    introduce: String,      //介绍
+    coverPhoto: String,     //封面图片
+    views: {
+        type: Number,
+        default: 0
+    },          //浏览量
+    comments: Object,
+    //博客状态:  0--未发布  1---发布
+    status: {
+        type: Number,
+        default: 0
+    },
     createTime:{
         type: String,
         default: Date.now

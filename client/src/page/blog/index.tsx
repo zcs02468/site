@@ -18,9 +18,11 @@ class BlogPage extends Component {
         total: 0,
     };
     componentWillMount() {
+        console.log(11);
         this.getPointBlogList(1, 10);
     }
     getPointBlogList = async (page: number, pageSize: number) => {
+        
         const [res] = await getBlogList(page, pageSize);
         this.setState({
             list: res.data.list,
@@ -29,12 +31,19 @@ class BlogPage extends Component {
     };
 
     render() {
+        const { list } = this.state
         return (
             <div className="blog-page">
                 <PageBack />
                 <div className="blog-warp">
                     <div className="blog-content">
-                        <BlogList />
+                        {
+                            list.map((item:any)=> {
+                                return(
+                                    <BlogList blogItem={item} key={item._id}/>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>

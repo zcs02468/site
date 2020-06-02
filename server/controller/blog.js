@@ -5,11 +5,11 @@ const xss = require('xss')
 module.exports = {
     //保存博客数据
     async saveBlog(ctx, next) {
-        let { id ='', title= '', rawContent = '', htmlContent= ''} = ctx.request.body
+        let { id ='', title= '', rawContent = '', htmlContent = '', coverPhoto = '', introduce = ''} = ctx.request.body
         try {
             if( id == '' ) {
                 //存储用户信息
-                let blog = new Blog({ title, rawContent, htmlContent})
+                let blog = new Blog({ title, rawContent, htmlContent, coverPhoto, introduce})
                 res = await blog.save()
                 ctx.body = {
                     code: 200,
@@ -17,7 +17,7 @@ module.exports = {
                     data: res._id
                 }
             }else {
-                Blog.findOneAndUpdate(id,{title:title,rawContent:rawContent,htmlContent:htmlContent},{multi: false})
+                Blog.findOneAndUpdate(id,{title:title,rawContent:rawContent,htmlContent:htmlContent,coverPhoto:coverPhoto,introduce:introduce},{multi: false})
                 ctx.body = {
                     code: 200,
                     msg: '更新成功',
