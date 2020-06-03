@@ -18,16 +18,19 @@ class DetailPage extends React.PureComponent<Props, {}> {
     state = {
         outputContent: "",
         title: '',
-        createTime: ""
+        createTime: "",
+        coverPhoto: ""
     };
 
     async componentDidMount() {
         let [res] = await getBlogContent(this.props.match.params.id)
+        console.log('res', res);
         
         this.setState({
             outputContent: res.data.htmlContent,
             title: res.data.title,
-            createTime: res.data.createTime
+            createTime: res.data.createTime,
+            coverPhoto: res.data.coverPhoto,
         });
         Prism.hooks.add('before-highlight', function(env: any) {
             env.element.innerHTML = env.element.innerHTML.replace(/<br\s*\/?>/g,'\n');
@@ -44,21 +47,15 @@ class DetailPage extends React.PureComponent<Props, {}> {
                         <header className="post-header">
                             <h1>{ this.state.title }</h1>
                             <PostMeta createTime={this.state.createTime}/>
-                            {/* <div className="post-meta">
-                                <span className="time">
-                                    <ClockCircleOutlined /> 发表于 <time>{this.state.createTime}</time>
-                                </span>
-                                <span className="look">
-                                    <EyeOutlined /> 浏览量 411
-                                </span>
-                                <span className="interactionCount">
-                                    <a className="discussionUrl" href="https://www.luymm.com/archives/402/#comments">
-                                        <CommentOutlined /> 没有评论
-                                    </a>
-                                </span>
-                            </div> */}
                         </header>
                         <div className="post-content">
+                            <div className="content-head">
+                                <div className="img-box">
+                                    {
+                                        this.state.coverPhoto && <img src={this.state.coverPhoto} />
+                                    }
+                                </div>
+                            </div>
                             <div className="before-highlight" dangerouslySetInnerHTML={{ __html: this.state.outputContent }}></div>
                         </div>
                         <header className="post-footer"></header>

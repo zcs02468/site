@@ -11,10 +11,10 @@ module.exports = {
         pageSize = Number(pageSize)
         try {
             let res = await Email.find({}).skip(page * pageSize).limit(pageSize).sort({createTime: -1});
-            let count = await Email.count({});
+            let count = await Email.estimatedDocumentCount();
             ctx.body = {
                 code: 200,
-                msg: '保存成功',
+                msg: '查询成功',
                 data: {
                     list: res,
                     count: count
@@ -24,7 +24,7 @@ module.exports = {
             console.error( 'error', error );
             ctx.body = {
                 code: 500,
-                msg: '保存失败！'
+                msg: '查询失败！'
             }
         }
     },

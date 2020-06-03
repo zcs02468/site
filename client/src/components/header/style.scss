@@ -40,6 +40,7 @@
         border-radius: initial;
         position: relative;
         animation: fade-in-bottom 1s .3s backwards;
+        z-index: 1;
     }
     .header-background {
         // background-image: url("../../assets/image/siteBack.jpg");

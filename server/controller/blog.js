@@ -57,10 +57,10 @@ module.exports = {
         pageSize = Number(pageSize)
         try {
             let res = await Blog.find({}).skip(page * pageSize).limit(pageSize).sort({createTime: -1});
-            let count = await Blog.count({});
+            let count = await Blog.estimatedDocumentCount();
             ctx.body = {
                 code: 200,
-                msg: '保存成功',
+                msg: '查询成功',
                 data: {
                     list: res,
                     count: count
@@ -69,7 +69,7 @@ module.exports = {
         } catch (error) {
             ctx.body = {
                 code: 500,
-                msg: '保存失败！'
+                msg: '查询失败！'
             }
         }
     }

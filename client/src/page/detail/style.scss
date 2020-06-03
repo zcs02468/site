@@ -23,6 +23,23 @@
     }
 }
 
+.post-content {
+    .content-head {
+        .img-box {
+            width: 692px;
+            margin: 0 auto;
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                box-sizing: border-box;
+                padding: 5px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
 
 .before-highlight {
     padding-top: 10px;

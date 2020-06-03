@@ -43,7 +43,7 @@ app.use(cors({
 app.use(bodyparser({
     enableTypes: ['json', 'form', 'text']
 }))
-// app.use(check_token)
+app.use(check_token)
 app.use(json())
 app.use(logger()) 
 
