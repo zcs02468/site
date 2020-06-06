@@ -19,7 +19,6 @@ interface BlogListProps {
 const BlogList: React.FC<BlogListProps> = ({ 
     blogItem,
 }) => {
-    console.log('blogItem', blogItem);
     const detailUrl = `/detail/${blogItem._id}`
     return(
         <div className="index-list">
@@ -32,7 +31,6 @@ const BlogList: React.FC<BlogListProps> = ({
             <img src={blogItem.coverPhoto}></img>
             <div className="item-content">{blogItem.introduce}</div>
             <div className="item-button">
-                {/* <a>-&nbsp;阅读全文&nbsp;-</a> */}
                 <Button href={detailUrl}>阅读全文</Button>
             </div>
         </div>
