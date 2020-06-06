@@ -26,3 +26,13 @@ interface createEmail {
 }
 
 export const createTimingEmail = async (obj:createEmail)=> await post({url:'/api/email/createTimingEmail',params: { ...obj }})
+
+
+interface visitorsData {
+    browserInfo: string;            //浏览器类型
+    detectOS: string;               //操作系统
+    screenResolution: string;       //分辨率
+    digits: string;                 //位数
+    language: string;               //语言
+}
+export const addVisitorsData = async (obj:visitorsData)=> await post({url:"/api/user/addUserVisitorsLog", params:{ ...obj }})

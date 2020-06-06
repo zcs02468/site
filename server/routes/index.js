@@ -10,6 +10,7 @@ router.get("/", async (ctx, next) => {
 router.get("/api/code/getCode", controller.code.getCode); // 验证码获取
 router.post("/api/user/register", controller.user.register); // 注册
 router.post("/api/user/login", controller.user.login); // 登陆
+router.post("/api/user/addUserVisitorsLog", controller.visitors.addUserVisitorsLog); // 登陆
 
 //获取每日一句
 router.get("/api/quote/getQuote", controller.quote.getQuote); // 获取每日一句

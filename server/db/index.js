@@ -109,11 +109,23 @@ let blogSchema = new Schema({
     }
 })
 
+//访客数据
+let visitorsSchema = new Schema({
+    ip: String,                     // ip
+    browserInfo: String,            // 浏览器类型
+    detectOS: String,               // 操作系统
+    screenResolution: String,       // 分辨率
+    digits: String,                 // 位数
+    language: String,               // 语言
+    location: Object                // 位置
+})
+
 exports.CheckCode = mongoose.model("Checkcode", checkcodeSchema);
 exports.User = mongoose.model("User", userSchema);
 exports.Record = mongoose.model("Record", recordSchema);
 exports.Quote = mongoose.model("Quote", quoteSchema);
 exports.Email = mongoose.model("Email", emailSchema);
 exports.Blog = mongoose.model("Blog", blogSchema);
+exports.Visitors = mongoose.model("Visitors", visitorsSchema);
 // exports.FutureEmail = mongoose.model("FutureEmail", futureEmailSchema);
 

@@ -1,4 +1,5 @@
-const user = require('./user')
+const user = require('./user/user')
+const visitors = require('./user/visitors')
 const code = require('./code')
 const quote = require('./quote')
 const book = require('./book')
@@ -11,4 +12,5 @@ module.exports = {
     book,
     email,
     blog,
+    visitors
 }

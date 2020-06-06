@@ -1,7 +1,6 @@
 const Blog = require('../db').Blog
 const xss = require('xss')
 
-
 module.exports = {
     //保存博客数据
     async saveBlog(ctx, next) {
@@ -49,7 +48,6 @@ module.exports = {
             }
         }
     },
-
     //分页查询博客
     async getBlogList(ctx, next) {
         let { page= 1, pageSize= 10 } = ctx.request.query

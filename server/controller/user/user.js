@@ -1,6 +1,6 @@
 
-const { check_token_code, create_token } = require('../utils/token')
-const User = require('../db').User
+const { check_token_code, create_token } = require('../../utils/token')
+const User = require('../../db').User
 const sha1 = require('sha1')
 const xss = require('xss')
 
@@ -125,5 +125,5 @@ module.exports = {
                 msg: '注册失败，服务器异常1！'
             }
         }
-    }
+    },
 }

@@ -1,6 +1,7 @@
 const getOneData = require('../module/getOneData/index')
 const sendOneEmail = require('../module/email/oneEmail/index')
 const sendEmail = require('../module/email/futureEmail/index')
+const collectEnergyMail = require('../module/email/collectEnergy/index')
 const schedule = require('node-schedule');
 
 
@@ -17,6 +18,9 @@ const timeTask = async function () {
     // schedule.scheduleJob('0 30 9 * * *', ()=> {
     //     sendOneEmail()
     // })
+    schedule.scheduleJob('30 0 7 * * *', ()=> {
+        collectEnergyMail()
+    })
     schedule.scheduleJob('0 20 5 * * *', ()=> {
         sendEmail()
     })

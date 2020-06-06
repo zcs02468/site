@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import BraftEditor from "braft-editor";
-import { Modal, Button } from "antd";
-import { DeleteOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 
 import Iconfont from "../Iconfont/index";
 import SendDialog from "./sendDialog/index";
 
 import "braft-editor/dist/index.css";
 import Style from "./style.module.scss";
-import { type } from "os";
 
 // componentWillMount----组件将要挂载到页面的时刻执行
 // render----开始挂载渲染

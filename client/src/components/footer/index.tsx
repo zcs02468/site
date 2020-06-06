@@ -1,7 +1,22 @@
 import React, { Component } from "react";
-import  Style from  "./style.module.scss";
+import getVisitorsData from "../../utils/getVisitorsData"
+import Cookie from "js-cookie"
+import {addVisitorsData} from "../../axios/index"
 
+import  Style from  "./style.module.scss";
 class Footer extends Component {
+
+    async componentDidMount() {
+        console.log(Cookie.get('site_visitor'));
+        if( !Cookie.get("site_visitor") ) {
+            const obj = getVisitorsData()
+            const [res] = await addVisitorsData(obj)
+            console.log('res', res);
+        }
+        
+        
+    }
+
     render() {
         return (
             <footer id={ Style.footer }>
