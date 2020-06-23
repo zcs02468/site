@@ -6,7 +6,7 @@ import { get, post } from "./tools";
 //         return null
 //     }
 //     return res
-// }q
+// }
 //获取每日一句
 export const getQuote = async () => await get({ url: "/api/quote/getQuote" });
 
