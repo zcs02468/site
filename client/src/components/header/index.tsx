@@ -22,7 +22,7 @@ class Header extends Component {
                             首页
                         </li>
                     </ul>
-                </nav>
+                 </nav>
                 <div className="header-warp">
                     <div className="header-background">
                     </div>

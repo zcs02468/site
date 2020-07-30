@@ -5,6 +5,7 @@ const quote = require('./quote')
 const book = require('./book')
 const email = require('./email')
 const blog = require('./blog')
+const test = require('./test')
 module.exports = {
     user,
     code,
@@ -12,5 +13,6 @@ module.exports = {
     book,
     email,
     blog,
-    visitors
+    visitors,
+    test
 }

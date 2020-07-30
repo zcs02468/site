@@ -29,4 +29,8 @@ router.get("/api/blog/getBlogList", controller.blog.getBlogList);
 router.post("/api/blog/saveBlog", controller.blog.saveBlog);
 router.get("/api/blog/getPointBlog", controller.blog.getPointBlog);
 
+
+//临时接口
+router.get("/api/test/getList", controller.test.getList)
+
 module.exports = router;
