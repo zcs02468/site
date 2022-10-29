@@ -3,28 +3,38 @@ const sendOneEmail = require('../module/email/oneEmail/index')
 const sendEmail = require('../module/email/futureEmail/index')
 const collectEnergyMail = require('../module/email/collectEnergy/index')
 const schedule = require('node-schedule');
-
-
+const juejinSignIn = require("../module/juejin/index.js")
+const logger = require('../middlewares/logger').logger('timedTask.js', 'info');
 
 
 //定时任务
 const timeTask = async function () {
+
     // 定时爬取网站数据
     schedule.scheduleJob('01 0 0 * * *', ()=> {
+        logger.info("定时爬取网站数据")
+        logger.error("定时爬取网站数据")
         getOneData()
     })
     //定时发送邮件  
-    // //单一发送指定邮箱
-    // schedule.scheduleJob('0 30 9 * * *', ()=> {
-    //     sendOneEmail()
-    // })
-    schedule.scheduleJob('30 0 7 * * *', ()=> {
-        collectEnergyMail()
+    //单一发送指定邮箱
+    schedule.scheduleJob('0 50 8 * * *', ()=> {
+        logger.info("单一发送指定邮箱")
+        sendOneEmail()
     })
+    // schedule.scheduleJob('30 0 7 * * *', ()=> {
+    //     collectEnergyMail()
+    // })
     schedule.scheduleJob('0 20 5 * * *', ()=> {
+        logger.error("定时爬取网站数据")
         sendEmail()
     })
-
+    //掘金签到
+    schedule.scheduleJob('0 0 9 * * *', ()=> {
+        logger.info("掘金签到")
+        logger.error("定时爬取网站数据")
+        juejinSignIn()
+    })
 }
 module.exports = timeTask;
 

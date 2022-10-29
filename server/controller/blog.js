@@ -30,7 +30,6 @@ module.exports = {
             }
         }
     },
-
     //获取指定博客数据
     async getPointBlog(ctx, next) {
         let { id = '' } = ctx.request.query

@@ -106,7 +106,8 @@ let blogSchema = new Schema({
     createTime:{
         type: String,
         default: Date.now
-    }
+    },
+    type: String, //类型   md  和  html 类型
 })
 
 //访客数据
@@ -119,6 +120,7 @@ let visitorsSchema = new Schema({
     language: String,               // 语言
     location: Object                // 位置
 })
+
 
 exports.CheckCode = mongoose.model("Checkcode", checkcodeSchema);
 exports.User = mongoose.model("User", userSchema);

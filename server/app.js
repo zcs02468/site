@@ -11,16 +11,24 @@ const json = require('koa-json')
 const logger = require('koa-logger')
 const path = require('path')
 const cors = require('koa2-cors')
-
+const static = require('koa-static')
 
 const index = require('./routes/index')
 const { check_token } = require('./utils/token')
 
-
 const app = new Koa()
 
 const TimeTask = require('./timedTask/index')
+const log4js = require('./middlewares/logger');
+log4js.use(app);
 
+// const getBlogs = require("./module/blog/index")
+
+// getBlogs()
+
+
+
+const staticPath = './static'
 // 定时任务
 TimeTask()
 
@@ -43,11 +51,14 @@ app.use(cors({
 app.use(bodyparser({
     enableTypes: ['json', 'form', 'text']
 }))
-app.use(check_token)
+// app.use(check_token)
 app.use(json())
-app.use(logger()) 
+app.use(logger())
 
 // routes
 app.use(index.routes(), index.allowedMethods())
+app.use(static(
+    path.join( __dirname,  staticPath)
+  ))
 
 module.exports = app

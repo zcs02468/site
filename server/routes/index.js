@@ -19,18 +19,14 @@ router.get("/api/quote/getQuote", controller.quote.getQuote); // 获取每日一
 router.post("/api/email/createTimingEmail", controller.email.createTimingEmail);
 router.get("/api/email/getEmailList", controller.email.getEmailList);
 
-//书
-router.get("/api/book/search", controller.book.search); // 登陆
-router.get("/api/book/detail", controller.book.detail); // 书籍详情
-router.get("/api/book/content", controller.book.content); // 书籍内容
+// //书
+// router.get("/api/book/search", controller.book.search); // 登陆
+// router.get("/api/book/detail", controller.book.detail); // 书籍详情
+// router.get("/api/book/content", controller.book.content); // 书籍内容
 
 //博客
 router.get("/api/blog/getBlogList", controller.blog.getBlogList);
 router.post("/api/blog/saveBlog", controller.blog.saveBlog);
 router.get("/api/blog/getPointBlog", controller.blog.getPointBlog);
-
-
-//临时接口
-router.get("/api/test/getList", controller.test.getList)
 
 module.exports = router;

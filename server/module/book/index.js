@@ -90,8 +90,8 @@ const getContent = async function(url) {
 }
 
 
-module.exports = {
-    searchBook,
-    getBookDetail,
-    getContent
-}
+// module.exports = {
+//     searchBook,
+//     getBookDetail,
+//     getContent
+// }

@@ -1,10 +1,10 @@
 //vrckkvikbnxwbicc
 const nodemailer = require("nodemailer"); //发送邮件的node插件
-const Quote = require('../../../db').Quote
+const Quote = require('../../db').Quote
 const getWeatherData = require('./getWeatherData');
-const getHtmlData = require("./getHtmlData");
-const {formatDate} = require("../../../utils/formatDate");
-const {EmailAuth, EmailService, EmailFrom, EmailToArr, EmailSubject} = require('../../../config')
+const getHtmlData = require("../email/getHtmlData");
+const formatDate = require("../../utils/formatDate");
+const {EmailAuth, EmailService, EmailFrom, EmailToArr, EmailSubject} = require('../../config')
 // const aa = require('../../config/index')
 
 let transporter = nodemailer.createTransport({
@@ -41,6 +41,7 @@ const getAllData = async() => {
 const sendMail = async function() {
     let allData = await getAllData()
     let htmlData = await getHtmlData(allData);
+
     let mailOptions = {
         from: EmailFrom, // 发送者昵称和地址
         to: EmailToArr[0].to, // 接收者的邮箱地址
@@ -48,16 +49,13 @@ const sendMail = async function() {
         // text: "test mail" //邮件的text
         html: htmlData  //也可以用html发送
     };
-
-    EmailToArr.forEach(item => {
-        mailOptions.to = item.to
-        //发送邮件
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("邮件发送成功 ID：", info.messageId);
-        });
+    
+    //发送邮件
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log("邮件发送成功 ID：", info.messageId);
     });
 };
 

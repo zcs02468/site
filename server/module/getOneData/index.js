@@ -23,6 +23,11 @@ const siteQuery = async function (body) {
     let type=$(todayOne).find(".fp-one-imagen-footer").text().replace(/(^\s*)|(\s*$)/g, "");
     let content= $(todayOne).find(".fp-one-cita").text().replace(/(^\s*)|(\s*$)/g, "");
     new Quote({ content, quoteImgUrl, type }).save()
-    
 }
+
+
+const saveImage = async function(url) {
+}
+
+
 module.exports = getOneData
